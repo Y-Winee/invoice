@@ -18,49 +18,46 @@
       <!-- Section -->
       <section>
         <div class="container space-y-8">
-          <form action="">
+          <form id="recordForm" action="">
             <div class="grid grid-cols-4 gap-6 bg-blue-50 p-5 rounded-md">
               <!-- Select Option -->
               <div class="col-span-2">
                 <label
-                  for="countries"
+                  for="items"
                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >Select an product</label
                 >
                 <select
-                  id="countries"
+                  id="selectItem"
+                  name="select_item"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 >
-                  <option selected>Choose a product</option>
-                  <option value="Banana">Banana</option>
-                  <option value="Orange">Orange</option>
-                  <option value="Mango">Mango</option>
-                  <option value="Apple">Apple</option>
+                  <option value="" selected>Choose a product</option>
                 </select>
               </div>
 
               <!-- Quantity -->
               <div class="col-span-1">
-                <form class="max-w-sm mx-auto">
-                  <label
-                    for="number-input"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >Select a number:</label
-                  >
-                  <input
-                    type="number"
-                    id="number-input"
-                    aria-describedby="helper-text-explanation"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="12345"
-                    required
-                  />
-                </form>
+                <label
+                  for="number-input"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Select a number:</label
+                >
+                <input
+                  type="number"
+                  id="quantity"
+                  name="quantity"
+                  aria-describedby="helper-text-explanation"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="12345"
+                  required
+                />
               </div>
 
               <!-- Record Button -->
               <div class="col-span-1">
                 <button
+                  id="recordBtn"
                   type="button"
                   class="py-2.5 px-5 me-2 mb-2 text-sm h-full w-full font-medium text-gray-900 focus:outline-none bg-white rounded-md border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                 >
@@ -204,80 +201,73 @@
         </div>
       </section>
 
-      <!-- Manage Inventory -->
-      <section class="fixed right-0 w-[450px] h-screen bg-white translate-x-full">
+      <!-- Manage Inventory Page -->
+      <section
+        id="inventoryPage"
+        class="fixed z-30 right-0 w-[450px] h-screen bg-white"
+      >
         <!-- Header -->
-        <header class="p-5 flex justify-between">
+        <header class="p-5 flex justify-between items-center">
           <div>
             <h1 class="text-2xl font-bold text-stone-700">Manage Inventory</h1>
             <p class="text-lg text-stone-400">Available Items</p>
           </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="size-8 stroke-stone-700 mt-1"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-              clip-rule="evenodd"
-            />
-          </svg>
+          <button id="removeInventoryPageBtn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-8 stroke-stone-700"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
         </header>
 
         <!-- Inventory List -->
         <section class="px-2">
-          <ul class="px-2">
-            <li class="border border-black p-3 flex justify-between rounded-lg mb-3">
-              <span>Apple</span>
-              <span>$9</span>
-            </li>
-
-            <li class="border border-black p-3 flex justify-between rounded-lg mb-3">
-              <span>Banana</span>
-              <span>$2</span>
-            </li> 
-
-            <li class="border border-black p-3 flex justify-between rounded-lg mb-3">
-              <span>Orange</span>
-              <span>$5</span>
-            </li>
-          </ul>
+          <ul id="inventoryList" class="px-2"></ul>
         </section>
 
         <!-- Add Item -->
         <section class="px-2 py-4 mt-4">
-          <div class="px-2">
-            <input
-              type="text"
-              id="first_name"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Add New Item"
-              required
-            />
-          </div>
-          <div class="grid grid-cols-3 px-2 py-5 gap-3">
-            <div class="col-span-2">
+          <form action="">
+            <div class="px-2">
               <input
-                type="number"
-                id="number-input"
-                aria-describedby="helper-text-explanation"
+                type="text"
+                id="addNewItemInput"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="90210"
+                placeholder="Add New Item"
                 required
               />
             </div>
-            <div class="col-span-1">
-              <button
-                type="button"
-                class="py-2.5 px-5 w-full me-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-50 rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-              >
-                Add
-              </button>
+            <div class="grid grid-cols-3 px-2 py-5 gap-3">
+              <div class="col-span-2">
+                <input
+                  type="number"
+                  id="addNewItemPriceInput"
+                  aria-describedby="helper-text-explanation"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Add Item's Price"
+                  required
+                />
+              </div>
+              <div class="col-span-1">
+                <button
+                  id="addNewItemBtn"
+                  type="button"
+                  class="py-2.5 px-5 w-full me-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-50 rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                >
+                  Add
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </section>
       </section>
 
@@ -286,6 +276,7 @@
         <div class="container">
           <div class="flex justify-end">
             <button
+              id="manageInventoryBtn"
               type="button"
               class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
             >
@@ -300,6 +291,18 @@
           </div>
         </div>
       </footer>
+
+      <template id="templateListNode">
+        <li
+          class="border border-black p-3 flex justify-between rounded-lg mb-3"
+        >
+          <span id="productName">Apple</span>
+          <span>
+            <span id="productPrice">9</span>
+            MMk
+          </span>
+        </li>
+      </template>
     </main>
     <script type="module" src="/main.js"></script>
   </body>
