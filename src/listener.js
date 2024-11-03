@@ -3,9 +3,10 @@ import {
   removeInventoryPageBtnHandler,
 } from "./handler";
 import { addNewItemBtnHandler } from "./inventoryPage";
-import { recordFormBtnHandler } from "./record";
+import { cartHandler, recordFormBtnHandler } from "./record";
 import {
   addNewItemBtn,
+  cart,
   manageInventoryBtn,
   recordBtn,
   removeInventoryPageBtn,
@@ -19,6 +20,7 @@ const listener = () => {
   );
   addNewItemBtn.addEventListener("click", addNewItemBtnHandler);
   recordBtn.addEventListener("click", recordFormBtnHandler);
+  cart.addEventListener("click", cartHandler);
 };
 
 export default listener;

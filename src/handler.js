@@ -9,3 +9,4 @@ export const removeInventoryPageBtnHandler = () => {
     console.log("You Click Remove Inventory Page Button");
     inventoryPage.classList.add("translate-x-full", "duration-300")
 }
+
