@@ -17,22 +17,24 @@ export const addNewItemBtnHandler = () => {
   const newProductName = addNewItemInput.value;
   const newProductPrice = addNewItemPriceInput.valueAsNumber;
 
-  productName.innerText = newProductName;
-  productPrice.innerText = newProductPrice;
+  if (newProductName != "" &&  newProductPrice != "") {
+    productName.innerText = newProductName;
+    productPrice.innerText = newProductPrice;
 
-  products.push({
-    id: newProductId,
-    name: newProductName,
-    price: newProductPrice,
-  });
+    products.push({
+      id: newProductId,
+      name: newProductName,
+      price: newProductPrice,
+    });
 
-  console.log(products);
+    console.log(products);
 
-  inventoryList.append(list);
+    inventoryList.append(list);
 
-  const option = new Option(newProductName, newProductId);
-  selectItem.append(option);
+    const option = new Option(newProductName, newProductId);
+    selectItem.append(option);
 
-  addNewItemInput.value = null;
-  addNewItemPriceInput.value = null;
+    addNewItemInput.value = null;
+    addNewItemPriceInput.value = null;
+  }
 };
